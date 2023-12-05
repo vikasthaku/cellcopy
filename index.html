@@ -6,19 +6,97 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- <input
+     type="text"
+     id="search"
+     onkeydown="BetterFunction()"
+     > -->
     <script>
+        // let counter = 0 ;
+        // function getData(){
+        //     console.log("function Data"+counter++);
+        // }
+        // function myDebounce(call,d){
+        //     let timer;
+        //     return  function(...args){
+        //         if(timer)clearTimeout(timer);
+        //         setTimeout(()=>{
+        //             call()
+        //         },d)
+        //     }
+        // }
+
+        // const BetterFunction = myDebounce(getData,2000)
         // Original object
-const originalObject = { name: 'John', age: 30, hobbies: ['reading', 'coding'] };
+// const originalObject = { name: 'John', age: 30, hobbies: ['reading', 'coding'] };
 
 // Shallow copy using spread operator
-const shallowCopy = { ...originalObject };
+// const shallowCopy = { ...originalObject };
 
 // Displaying on screen
-console.log("Original Object:", originalObject);
-console.log("Shallow Copy:", shallowCopy);
+// console.log("Original Object:", originalObject);
+// console.log("Shallow Copy:", shallowCopy);
 
+//   let obj={
+//     name:'vikas'
+//   }
+//   let user =Object.assign({},obj)
+// let user = {...obj}
+//   user.name="jadaun"
+//   console.log("object is",obj);
+//   console.log("user is",user);
+//   let obj={
+//     name:"peter",
+//     address:{
+//         city:"Noida",
+//         state:"UP"
+//     }
+
+//   }
+//   let user =JSON.parse(JSON.stringify(obj))
+//   user.city="Gorgaon"
+//   console.log("object is",obj);
+//    console.log("user is",user);
+  
+    //  let obj={
+    //     name:'Vikas',
+    //     address:{
+    //         city:"Noida",
+    //         state:"UP"
+    //     }
+    //  }
+    //  let user =JSON.parse(JSON.stringify(obj))
+    //  user.address.city="Delhi"
+    //  console.log("obj",obj);
+    //  console.log("user",user);
+    // console.log('Hello, world!;
+
+    // Example ReferenceError
+// console.log(undefinedVariable);
+
+// Example TypeError
+// let x = null;
+// x.toUpperCase(); 
+// TypeError: Cannot read property 'toUpperCase' of null
+
+// Example RangeError
+// let arr = new Array(-1); 
+
+// RangeError: Invalid array length
+
+// Example Custom Error
+// class CustomError extends Error {
+//   constructor(message) {
+//     super(message);
+//     this.name = 'CustomError';
+//   }
+// }
+
+// throw new CustomError('This is a custom error message');
 
   
+
+
 
     </script>
 </body>
