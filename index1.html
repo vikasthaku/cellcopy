@@ -1,33 +1,383 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Javascript is a best programming language </title>
 </head>
 <body>
-  <input 
-  type="text"
-  id="search"
-  onkeydown="BetterFunction()">
-    <script>
-     let counter = 0 
-     function getData(){
-        console.log("getdata"+counter++);
-     }
-
-      function myDebounce(call,d){
+   <input 
+   type="text"
+   id="search"
+   onkeyup="BetterFunction()">
+   <button id="myid" onclick="newFun()">click</button> 
+   <script>
+    let counter= 0 ;
+    function getData(){
+        console.log("function is called"+counter++);
+    }
+    function myDebounce(call,d){
         let timer;
         return function(...args){
-            if(timer)clearTimeout(timer);
+            if(timer)clearTimeout(timer)
             setTimeout(()=>{
-call()
+           call()
             },d)
         }
+    }
+    let BetterFunction = myDebounce(getData,5000)
 
+
+      const mythrottle=(fn,d)=>{
+     return function(...args){
+        document.getElementById("myid").disabled = true;
+        setTimeout(()=>{
+            fn()
+        },d)
+     }
       }
+       const newFun= mythrottle(()=>{
+        document.getElementById("myid").disabled = false;
+        console.log("User Called!!");
+       },5000)
+   </script>
+</body>
+</html> -->
 
-       const BetterFunction= myDebounce(getData,2000)
-    </script>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debounce and Throttle Example</title>
+</head>
+<body>
+
+<input type="text" id="inputField" placeholder="Type something">
+
+<script>
+// Debounce function
+function debounce(func, delay) {
+  let timeoutId;
+  return function() {
+    const args = arguments;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+// Function to be debounced
+function handleInput() {
+  console.log('Input debounced:', document.getElementById('inputField').value);
+}
+
+// Add a debounced event listener to the input field
+document.getElementById('inputField').addEventListener('input', debounce(handleInput, 500));
+</script>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debounce and Throttle Example</title>
+</head>
+<body>
+
+<div id="scrollContainer" style="height: 200px; overflow-y: scroll;">
+  <div id="scrollContent" style="height: 500px;">Scroll me</div>
+</div>
+
+<script>
+// Throttle function
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => {
+        inThrottle = false;
+      }, limit);
+    }
+  };
+}
+
+// Function to be throttled
+function handleScroll() {
+  console.log('Scrolling throttled. Scroll position:', document.getElementById('scrollContainer').scrollTop);
+}
+
+// Add a throttled event listener to the scroll container
+document.getElementById('scrollContainer').addEventListener('scroll', throttle(handleScroll, 200));
+</script>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debounce and Throttle Example</title>
+</head>
+<body>
+
+<div id="scrollContainer" style="height: 200px; overflow-y: scroll;">
+  <div id="scrollContent" style="height: 500px;">Scroll me</div>
+</div>
+
+<script>
+// Throttle function
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => {
+        inThrottle = false;
+      }, limit);
+    }
+  };
+}
+
+// Function to be throttled
+function handleScroll() {
+  console.log('Scrolling throttled. Scroll position:', document.getElementById('scrollContainer').scrollTop);
+}
+
+// Add a throttled event listener to the scroll container
+document.getElementById('scrollContainer').addEventListener('scroll', throttle(handleScroll, 200));
+</script>
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web API Example</title>
+</head>
+<body>
+
+<button id="fetchButton">Fetch Data</button>
+
+<script>
+// Function to fetch data from a web API
+function fetchData() {
+  // Replace the URL with the actual API endpoint
+  const apiUrl = 'https://jsonplaceholder.typicode.com/posts/1';
+
+  // Using the Fetch API to make an HTTP GET request
+  fetch(apiUrl)
+    .then(response => {
+      // Check if the request was successful (status code 200)
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      // Parse the response JSON
+      return response.json();
+    })
+    .then(data => {
+      // Log the data to the console
+      console.log('Data from the API:', data);
+    })
+    .catch(error => {
+      // Log any errors to the console
+      console.error('Error fetching data:', error.message);
+    });
+}
+
+// Add a click event listener to the button to trigger the fetch
+document.getElementById('fetchButton').addEventListener('click', fetchData);
+</script>
+
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>typeof Operator Example</title>
+</head>
+<body>
+
+<script>
+// Examples of different data types
+const numberVariable = 42;
+const stringVariable = 'Hello, World!';
+const booleanVariable = true;
+const arrayVariable = [1, 2, 3];
+const objectVariable = { key: 'value' };
+const undefinedVariable = undefined;
+const nullVariable = null;
+const functionVariable = function() {};
+
+// Using typeof operator to determine data types
+console.log('Type of numberVariable:', typeof numberVariable);
+console.log('Type of stringVariable:', typeof stringVariable);
+console.log('Type of booleanVariable:', typeof booleanVariable);
+console.log('Type of arrayVariable:', typeof arrayVariable);
+console.log('Type of objectVariable:', typeof objectVariable);
+console.log('Type of undefinedVariable:', typeof undefinedVariable);
+console.log('Type of nullVariable:', typeof nullVariable);
+console.log('Type of functionVariable:', typeof functionVariable);
+</script>
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Operators Example</title>
+</head>
+<body>
+
+<script>
+// Arithmetic operators
+let a = 10;
+let b = 5;
+console.log('Addition:', a + b);
+console.log('Subtraction:', a - b);
+console.log('Multiplication:', a * b);
+console.log('Division:', a / b);
+console.log('Modulus (remainder):', a % b);
+
+// Assignment operators
+let c = 20;
+c += 5; // equivalent to c = c + 5;
+console.log('Updated value of c:', c);
+
+// Comparison operators
+let x = 10;
+let y = '10';
+console.log('Equality:', x == y); // loose equality
+console.log('Strict Equality:', x === y); // strict equality
+console.log('Inequality:', x != y);
+console.log('Strict Inequality:', x !== y);
+console.log('Greater than:', a > b);
+console.log('Less than:', a < b);
+console.log('Greater than or equal to:', a >= b);
+console.log('Less than or equal to:', a <= b);
+
+// Logical operators
+let condition1 = true;
+let condition2 = false;
+console.log('Logical AND:', condition1 && condition2);
+console.log('Logical OR:', condition1 || condition2);
+console.log('Logical NOT:', !condition1);
+
+// String concatenation
+let firstName = 'John';
+let lastName = 'Doe';
+let fullName = firstName + ' ' + lastName;
+console.log('Full Name:', fullName);
+
+// Unary operators
+let num = 5;
+console.log('Unary Plus:', +num);
+console.log('Unary Negation:', -num);
+console.log('Increment:', ++num);
+console.log('Decrement:', --num);
+</script>
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Iteration Example</title>
+</head>
+<body>
+
+<script>
+// Sample array
+const fruits = ['Apple', 'Banana', 'Orange', 'Mango'];
+
+// Using forEach to iterate through the array
+console.log('Using forEach:');
+fruits.forEach(function(fruit, index) {
+  console.log(`Index ${index + 1}: ${fruit}`);
+});
+
+// Using for...of to iterate through the array
+console.log('\nUsing for...of:');
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+
+// Using for loop to iterate through the array
+console.log('\nUsing for loop:');
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+</script>
+
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Dates Example</title>
+</head>
+<body>
+
+<script>
+// Creating a new Date object with the current date and time
+const currentDate = new Date();
+
+// Displaying the current date and time
+console.log('Current Date and Time:', currentDate);
+
+// Extracting individual components of the date
+const year = currentDate.getFullYear();
+const month = currentDate.getMonth() + 1; // Months are zero-indexed
+const day = currentDate.getDate();
+const hours = currentDate.getHours();
+const minutes = currentDate.getMinutes();
+const seconds = currentDate.getSeconds();
+
+console.log('Year:', year);
+console.log('Month:', month);
+console.log('Day:', day);
+console.log('Hours:', hours);
+console.log('Minutes:', minutes);
+console.log('Seconds:', seconds);
+
+// Formatting the date
+const formattedDate = currentDate.toDateString();
+console.log('Formatted Date:', formattedDate);
+</script>
+
 </body>
 </html>
+
+
+
+ -->
+
+
